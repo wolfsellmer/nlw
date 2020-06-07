@@ -21,6 +21,12 @@
     #page-searh-results .cards img{
         height: 250px;
     }
+    #page-create-point .fiend-group {
+        flex-direction: column;
+    }
+    #page-create-point .fiend-group .field + .field{
+        margin-left: 0;
+    }
 }
 
 @media(min-width: 1700px){
