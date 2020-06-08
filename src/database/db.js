@@ -4,7 +4,7 @@ const db = new sqlite3.Database("./src/database.db")
 module.exports= db
 
 
-// db.serialize(()=>{
+db.serialize(()=>{
 //     db.run(`
 //         CREATE TABLE IF NOT EXISTS places (
 //             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,21 +45,21 @@ module.exports= db
 //         console.log("Cadastrado con sucesso")
 //         console.log(this)
 //     }
-//     db.run(query, values, afterInsertData)
-//      db.all(`SELECT * FROM places`, function(err, rows){
-//         if(err){
-//             return console.log(err)
-//         }
-//         console.log("Aqui estão seus registros: ")  
-//         console.log(rows)  
-//     }) 
-//     //  db.run(`DELETE FROM places WHERE id = ?`, [4], function(err){
-//     //     if(err){
-//     //         return console.log(err)
-//     //     }
-//     //     console.log("Registro deletado com sucesso! ")
-//     // })
+//    db.run(query, values, afterInsertData)
+     db.all(`SELECT * FROM places`, function(err, rows){
+        if(err){
+            return console.log(err)
+        }
+        console.log("Aqui estão seus registros: ")  
+        console.log(rows)  
+    }) 
+    //  db.run(`DELETE FROM places WHERE id = ?`, [26], function(err){
+    //     if(err){
+    //         return console.log(err)
+    //     }
+    //     console.log("Registro deletado com sucesso! ")
+    // })
  
-    
 
-// })
+
+ })

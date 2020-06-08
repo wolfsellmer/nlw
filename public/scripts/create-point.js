@@ -45,11 +45,7 @@ const itemsToCollect = document.querySelectorAll(".items-grid li")
 
     for(const item of itemsToCollect){
         item.addEventListener("click", handleSelectedItem)
-   }
-
-const collectedItems = document.querySelector("input[name=items]")
-let selectedItems = []
-
+}
 function handleSelectedItem(event){
     const itemLi = event.target
     itemLi.classList.toggle("selected")
@@ -78,6 +74,15 @@ function handleSelectedItem(event){
 
    collectedItems.value = selectedItems
 }  
+
+for(const item of itemsToCollect) {
+    item.addEventListener("click", handleSelectedItem)
+    }
+   
+const collectedItems = document.querySelector("input[name=items]")
+let selectedItems = []
+
+
 
 
     

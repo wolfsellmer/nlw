@@ -23,6 +23,8 @@ server.get("/create-point", (req, res)=>{
     return res.render("create-point.html")
 })
 server.post("/savepoint", (req, res)=>{
+
+    //console.log(req.body)
         const query =`
         INSERT INTO places (
             image,
@@ -41,11 +43,12 @@ server.post("/savepoint", (req, res)=>{
         req.body.address2,
         req.body.state,
         req.body.city,
-        req.body.items
+        req.body.items,
     ]
     function afterInsertData(err){
         if(err){
             return console.log(err)
+            return res.send("Erro no Cadastro")
         }
         console.log("Cadastrado con sucesso")
         console.log(this)
