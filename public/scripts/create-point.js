@@ -41,6 +41,38 @@ document
     .querySelector("select[name=uf]")
     .addEventListener("change", getCities)
 
+    function handleSelectedItem(event){
+        const itemLi = event.target
+    
+        itemLi.classList.toggle("selected")
+        
+        const itemId = itemLi.dataset.id
+         
+        //console.log ('ITEM ID: ',itemId)
+        
+        const alreadySelected = selectedItems.findIndex(item => {
+            const itemFound = item == itemId
+            return itemFound 
+        })
+    
+        if (alreadySelected => 0){
+            const filteredItems = selectedItems.filter( item =>{
+                const itemIsDifferent = item != itemId 
+                return itemIsDifferent
+    
+            })
+            selectedItems = filteredItems
+        } else {
+            selectedItems.push(itemId)
+        }  
+    
+        //console.log('selectedItems: ',selectedItems) 
+    
+       collectedItems.value = selectedItems
+    }  
+
+
+
 const itemsToCollect = document.querySelectorAll(".items-grid li")
 
 for(const item of itemsToCollect) {
@@ -55,33 +87,5 @@ for(const item of itemsToCollect) {
 //     for(const item of itemsToCollect){
 //         item.addEventListener("click", handleSelectedItem)
 // }
-function handleSelectedItem(event){
-    const itemLi = event.target
 
-    itemLi.classList.toggle("selected")
-    
-    const itemId = itemLi.dataset.id
-     
-    //console.log ('ITEM ID: ',itemId)
-    
-    const alreadySelected = selectedItems.findIndex(item => {
-        const itemFound = item == itemId
-        return itemFound 
-    })
-
-    if (alreadySelected => 0){
-        const filteredItems = selectedItems.filter( item =>{
-            const itemIsDifferent = item != itemId 
-            return itemIsDifferent
-
-        })
-        selectedItems = filteredItems
-    } else {
-        selectedItems.push(itemId)
-    }  
-
-    //console.log('selectedItems: ',selectedItems) 
-
-   collectedItems.value = selectedItems
-}  
   
