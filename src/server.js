@@ -43,7 +43,7 @@ server.post("/savepoint", (req, res)=>{
         req.body.address2,
         req.body.state,
         req.body.city,
-        req.body.items,
+        req.body.items
     ]
     function afterInsertData(err){
         if(err){
@@ -52,7 +52,7 @@ server.post("/savepoint", (req, res)=>{
         }
         console.log("Cadastrado con sucesso")
         console.log(this)
-        return res.send("ok")
+        return res.render("create-point.html", {saved:true})
     }
     db.run(query, values, afterInsertData)
 

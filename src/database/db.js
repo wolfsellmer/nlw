@@ -4,7 +4,7 @@ const db = new sqlite3.Database("./src/database.db")
 module.exports= db
 
 
-db.serialize(()=>{
+//db.serialize(()=>{
 //     db.run(`
 //         CREATE TABLE IF NOT EXISTS places (
 //             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -46,13 +46,13 @@ db.serialize(()=>{
 //         console.log(this)
 //     }
 //    db.run(query, values, afterInsertData)
-     db.all(`SELECT * FROM places`, function(err, rows){
-        if(err){
-            return console.log(err)
-        }
-        console.log("Aqui estão seus registros: ")  
-        console.log(rows)  
-    }) 
+    //  db.all(`SELECT * FROM places`, function(err, rows){
+    //     if(err){
+    //         return console.log(err)
+    //     }
+    //     console.log("Aqui estão seus registros: ")  
+    //     console.log(rows)  
+    //}) 
     //  db.run(`DELETE FROM places WHERE id = ?`, [26], function(err){
     //     if(err){
     //         return console.log(err)
@@ -62,4 +62,4 @@ db.serialize(()=>{
  
 
 
- })
+ //})
