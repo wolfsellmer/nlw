@@ -26,7 +26,7 @@ server.post("/savepoint", (req, res)=>{
 
     //console.log(req.body)
         const query =`
-        INSERT INTO places (
+        INSERT INTO places2 (
             image,
             name,
             address,
@@ -69,14 +69,14 @@ server.get("/search", (req, res)=>{
 
 
     
-    db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function(err, rows){
+    db.all(`SELECT * FROM places2 WHERE city LIKE '%${search}%'`, function(err, rows){
                 if(err){
                     return console.log(err)
                 }
                 const total = rows.length
                 // console.log("Aqui estão seus registros: ")  
                 // console.log(rows)  
-                return res.render("search-results.html", {places: rows, total: total})
+                return res.render("search-results.html", {places2: rows, total: total})
             })
     
 })

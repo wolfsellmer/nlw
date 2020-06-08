@@ -41,6 +41,10 @@ document
     .querySelector("select[name=uf]")
     .addEventListener("change", getCities)
 
+
+    const collectedItems = document.querySelector("input[name=items]")
+    let selectedItems = []
+
     function handleSelectedItem(event){
         const itemLi = event.target
     
@@ -55,7 +59,7 @@ document
             return itemFound 
         })
     
-        if (alreadySelected => 0){
+        if (alreadySelected >= 0){
             const filteredItems = selectedItems.filter( item =>{
                 const itemIsDifferent = item != itemId 
                 return itemIsDifferent
@@ -77,15 +81,7 @@ const itemsToCollect = document.querySelectorAll(".items-grid li")
 
 for(const item of itemsToCollect) {
     item.addEventListener("click", handleSelectedItem)
-    }
+}
     
-    const collectedItems = document.querySelector("input[name=items]")
-    let selectedItems = []
-
-
-
-//     for(const item of itemsToCollect){
-//         item.addEventListener("click", handleSelectedItem)
-// }
 
   
